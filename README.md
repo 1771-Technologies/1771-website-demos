@@ -1,4 +1,4 @@
-# Getting Started with LyteNyte Grid
+# LyteNyte Grid Website Demos
 
 See [Getting Started Guide](https://1771technologies.com/docs/intro-getting-started).
 
