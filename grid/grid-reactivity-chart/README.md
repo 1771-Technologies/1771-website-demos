@@ -1,4 +1,4 @@
-# Grid Reactivity Signal
+# Grid Reactivity Chart
 
 See [Grid Reactivity Guide](https://1771technologies.com/docs/grid-reactivity).
 
