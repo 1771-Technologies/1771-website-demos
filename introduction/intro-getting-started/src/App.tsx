@@ -4,9 +4,11 @@ import {
   useClientDataSource,
 } from "@1771technologies/lytenyte-pro";
 import "@1771technologies/lytenyte-pro/grid.css";
+import { ColumnProReact } from "@1771technologies/lytenyte-pro/types";
 import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
+import { useId } from "react";
 
-const columns = [
+const columns: ColumnProReact[] = [
   { id: "age", type: "number" },
   { id: "job" },
   { id: "marital" },
@@ -18,7 +20,7 @@ export function App() {
   const ds = useClientDataSource({ data: bankDataSmall });
 
   const grid = useLyteNytePro({
-    gridId: "my-grid",
+    gridId: useId(),
     rowDataSource: ds,
     columns,
     columnBase: {

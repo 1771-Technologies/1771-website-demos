@@ -9,7 +9,7 @@ import {
   GridProReact,
 } from "@1771technologies/lytenyte-pro/types";
 import { companiesWithPricePerf } from "@1771technologies/sample-data/companies-with-price-performance";
-import { useMemo } from "react";
+import { useId, useMemo } from "react";
 import {
   Area,
   AreaChart,
@@ -33,7 +33,7 @@ export function App() {
   const ds = useClientDataSource({ data: companiesWithPricePerf });
 
   const grid = useLyteNytePro({
-    gridId: "my-grid",
+    gridId: useId(),
     rowDataSource: ds,
     columns,
 
