@@ -7,11 +7,11 @@ import "@1771technologies/lytenyte-pro/grid.css";
 import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
 
 const columns = [
-  { id: "age" },
+  { id: "age", type: "number" },
   { id: "job" },
   { id: "marital" },
   { id: "education" },
-  { id: "balance" },
+  { id: "balance", type: "number" },
 ];
 
 export function App() {
