@@ -35,6 +35,7 @@ export function App() {
     <div style={{ height: 500, display: "flex", flexDirection: "column" }}>
       <div>
         <input
+          aria-label="update-age"
           style={{ width: 150, boxSizing: "border-box" }}
           value={c[0].headerName ?? ""}
           onChange={(e) => {
@@ -42,6 +43,7 @@ export function App() {
           }}
         />
         <input
+          aria-label="update-job"
           style={{ width: 150, boxSizing: "border-box" }}
           value={c[1].headerName ?? ""}
           onChange={(e) => {
@@ -49,6 +51,7 @@ export function App() {
           }}
         />
         <input
+          aria-label="update-balance"
           style={{ width: 150, boxSizing: "border-box" }}
           value={c[2].headerName ?? ""}
           onChange={(e) => {
@@ -56,6 +59,7 @@ export function App() {
           }}
         />
         <input
+          aria-label="update-education"
           style={{ width: 150, boxSizing: "border-box" }}
           value={c[3].headerName ?? ""}
           onChange={(e) => {
@@ -63,6 +67,7 @@ export function App() {
           }}
         />
         <input
+          aria-label="update-marital"
           style={{ width: 150, boxSizing: "border-box" }}
           value={c[4].headerName ?? ""}
           onChange={(e) => {
