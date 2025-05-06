@@ -1,4 +1,4 @@
-# Column Header Name Update
+# Column Header Name
 
 See [Columns Guide](https://1771technologies.com/docs/column-header-name).
 
