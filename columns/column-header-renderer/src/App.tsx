@@ -36,11 +36,11 @@ function HeaderRendererExample({
 }
 
 const columns: ColumnProReact[] = [
-  { id: "age", type: "number", headerRenderer: "indexed-uppercase" },
-  { id: "job", headerRenderer: "indexed-uppercase" },
-  { id: "balance", type: "number", headerRenderer: "indexed-uppercase" },
-  { id: "education", headerRenderer: "indexed-uppercase" },
-  { id: "marital", headerRenderer: "indexed-uppercase" },
+  { id: "age", type: "number", headerRenderer: HeaderRendererExample },
+  { id: "job", headerRenderer: HeaderRendererExample },
+  { id: "balance", type: "number", headerRenderer: HeaderRendererExample },
+  { id: "education", headerRenderer: HeaderRendererExample },
+  { id: "marital", headerRenderer: HeaderRendererExample },
 ];
 
 export function App() {
@@ -51,9 +51,6 @@ export function App() {
     rowDataSource: ds,
     columns,
 
-    columnHeaderRenderers: {
-      "indexed-uppercase": HeaderRendererExample,
-    },
     columnBase: {
       widthFlex: 1,
     },
