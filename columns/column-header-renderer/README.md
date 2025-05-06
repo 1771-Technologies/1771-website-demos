@@ -1,6 +1,6 @@
-# Column Header Name Update
+# Column Header Renderer
 
-See [Columns Header Name Guide](https://1771technologies.com/docs/column-header-name).
+See [Columns Header Renderer Guide](https://1771technologies.com/docs/column-header-renderer).
 
 - [1771 Technologies](https://1771technologies.com)
 - [LyteNyte Pricing](https://1771technologies.com/pricing)
