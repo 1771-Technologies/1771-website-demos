@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@1771technologies/lytenyte-pro':
-        specifier: ^0.0.67
-        version: 0.0.67(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
+        specifier: ^0.0.68
+        version: 0.0.68(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
       '@1771technologies/sample-data':
-        specifier: ^0.0.67
-        version: 0.0.67
+        specifier: ^0.0.68
+        version: 0.0.68
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -57,107 +57,107 @@ importers:
 
 packages:
 
-  '@1771technologies/grid-client-aggregator@0.0.67':
-    resolution: {integrity: sha512-i/vWASdiXSk2uEzZj308q8HY33OhidLBVVDEQBYMZACghZLbRC/O19olTistKBXjBgW/hV5WWcOzh1F75YjUTw==}
+  '@1771technologies/grid-client-aggregator@0.0.68':
+    resolution: {integrity: sha512-bWuTmWEvUrtpuniT7tI2g24CoiWjAooJV8tgWyoN8v7rDqGli0Tn03Sx3t/gvJixgw2bZ5hEhcbztN9jP68tuw==}
 
-  '@1771technologies/grid-client-data-source-core@0.0.67':
-    resolution: {integrity: sha512-uNWMUbO8KMAKhbZYsFRFTkBDygSO8zSRHKDpRzrh4VN9TTrY027kwIq3MH1OAVqqO3SqViQWstIuxjOqAWdiTA==}
+  '@1771technologies/grid-client-data-source-core@0.0.68':
+    resolution: {integrity: sha512-9F6G2W/0thxtj6gL1K0UX8Q7reMmHdoa4ZrUR/UhPec4c/3r0NnnHVeqGG45H0jv7Ofe6dwhryEQQNIPh7I80g==}
 
-  '@1771technologies/grid-client-data-source-pro@0.0.67':
-    resolution: {integrity: sha512-484jTg4oh7LXBcuGMwsvWfvgM41ykQv4nkmxlnWQj26KW/kvNnDUL9tEY38a9aBdGG5Aleyl9bEa2S9xZBgZgA==}
+  '@1771technologies/grid-client-data-source-pro@0.0.68':
+    resolution: {integrity: sha512-Y/3Q6FOpx0msfnQ0d0JHUmvKevqZzauHC5fBVTHq9F5kknH5BIKb+t41HTo9zZ4B4g6m8q49ovwvx4dsAOwrNw==}
 
-  '@1771technologies/grid-client-filter@0.0.67':
-    resolution: {integrity: sha512-jadXF+xM8Ol8Hr64wAtZnhnREs2UzuophvTU9CRQvf/32aQZC1lEJkeC4EPG+1Nhp+zsWa6oUs2OKX4BzSM+Ag==}
+  '@1771technologies/grid-client-filter@0.0.68':
+    resolution: {integrity: sha512-3sNTbD8bxNzv6lBi4xWuLJ1ufy6aujnaZ30UOkIpmjZ9O2AH56qTGepappvXhmhJgWLDaDKODzkcUCCq8zj9iw==}
 
-  '@1771technologies/grid-client-sort@0.0.67':
-    resolution: {integrity: sha512-iqgW7kewhyrZU54liLwD9054kGCfsYd27wousqpT3r4wFp+3CIXDqt4/XRDptkYMOJ/xvIz6dbp0omgKi2bH5w==}
+  '@1771technologies/grid-client-sort@0.0.68':
+    resolution: {integrity: sha512-x10RnbfbjCUaLzlBYyuGp+f8rTWOvhiy505Q8JiVgbCJGs4jIeqqACRpp22UUiuqPGaXGObt9M549yr+QzqI9Q==}
 
-  '@1771technologies/grid-constants@0.0.67':
-    resolution: {integrity: sha512-p70gLfXBgbYy7wJTqliHb07yA+gvkfDe49xGorVmQLWnDLCDbIpTUy6gQ5jX05l1vEk6xl8+p4wKW3DR+/GCmg==}
+  '@1771technologies/grid-constants@0.0.68':
+    resolution: {integrity: sha512-p5rZoKoCCdMmkNzpLE62QQxfzaRNn4ubTpe6xQsM3YYADOrGvvE4Gp7GInfAJQ3xsJXkcE4yI9iKKzZHtDJJWg==}
 
-  '@1771technologies/grid-core-pro@0.0.67':
-    resolution: {integrity: sha512-h+ww/VbMGdKRteGTPtm3QVt8bpv5Rf+72G/aCLGnwovebf/cCyX6vyNx6vYOwFKS7NUcECDaf+rxPSzDouTjxg==}
+  '@1771technologies/grid-core-pro@0.0.68':
+    resolution: {integrity: sha512-tDPgyqeXTdRHQ/P/G82FWjhF89sDoigeHP5pPkIwHram5VBx22Z5eQn1YVaF6aj8nFFmhAGY7fQLYbvR60idMg==}
 
-  '@1771technologies/grid-core@0.0.67':
-    resolution: {integrity: sha512-ZohAkKiEGCO6g1qxj13wxMVoWagYjCNXiYtZTKX/5U8XjwVa0KwFMewFkt4xKhRL7eiLozgd770GJ0psRgu03g==}
+  '@1771technologies/grid-core@0.0.68':
+    resolution: {integrity: sha512-78mFb0SOaQNdPqVnv+ailPFj/OWl7qd/OGSRli+9Z7zutYtFyiY7XULP6YFu764NJ6XEyvE96zHI02cjmHQPUQ==}
 
-  '@1771technologies/grid-design@0.0.67':
-    resolution: {integrity: sha512-7/bAHxhMqEQcee0Qs8VFPjkZ2JElizFqNt6LavZjMgxMyXjOpm3Kgp/J+La71gstyn14+WiZ7F24JyVNGQqDGw==}
+  '@1771technologies/grid-design@0.0.68':
+    resolution: {integrity: sha512-5mNdjbS0ra9LjzlxK9a8yqa6eOG/+rpvd/3/2+YLd2hj8pz6u3Lbjmg53MdX+Qr2lLYEekzqDk/RC04IEJlGSQ==}
 
-  '@1771technologies/grid-graph@0.0.67':
-    resolution: {integrity: sha512-D3/USNYqj44M7HqVALvInd2/FleP17A4OlFDFvYj5tdUqvM8mOuLKZ8jNdq4ibjW5squVDrNRW/Gyc+NQ3gtEQ==}
+  '@1771technologies/grid-graph@0.0.68':
+    resolution: {integrity: sha512-suxNPaEOcc8S/OlmT4D720ENepZpOCYBf3+jF0ZAc6mNgnoE8QdpmRr7QbxWDAFL+Ttdc+LafC1Shz54d7nYkg==}
 
-  '@1771technologies/grid-provider@0.0.67':
-    resolution: {integrity: sha512-uGTJzyPTETwLUbRYdLqXhu9lEdfVI96LcdQlTDyRa0oQIQZjOVBJPaJHJgaI+AfzShzUc3lwPYDkvBSsXE1+Vw==}
+  '@1771technologies/grid-provider@0.0.68':
+    resolution: {integrity: sha512-fCdDb4tHcQO9Zcb27WVvtq2H0TBb9dl5u8q0yyAK8pkvfYvoyWy0AV00jMxw1KcuDrPt8Tdz/7n9D5N4lXKUdA==}
 
-  '@1771technologies/grid-shared-state@0.0.67':
-    resolution: {integrity: sha512-KKZ+0NLILCgH0+XVmj+Kv9xPHIK69yhh0M3gOUKYtCShPxpz+BGnht44UJAHPSRf/sHiPAVxt7EIMLHtJKDDbA==}
+  '@1771technologies/grid-shared-state@0.0.68':
+    resolution: {integrity: sha512-pFUTfLP3M6oT31DKbEJXtMl6WAwXG24al3eq6VAgiOnYfP0B4DWBN+igpTzQLDihdcNZTjprHKoxFvorNydFCg==}
 
-  '@1771technologies/grid-store-core@0.0.67':
-    resolution: {integrity: sha512-UPK3YRzJHrTH5Du+4Lw+HaA1Ej/ZPqXib7S/CW2eDjpuX0JsqS2htOhAw4oPMO1m9WvhhEC221mWdHSAr7pK6w==}
+  '@1771technologies/grid-store-core@0.0.68':
+    resolution: {integrity: sha512-IGrpH62G2UAegM7JJVnxpKYyUVVHwClJ5YJeTUzgZxOpb61+FghvnNbFKsHTnxbpBsLi9EsHcHpMdo7eNusn+g==}
 
-  '@1771technologies/grid-store-pro@0.0.67':
-    resolution: {integrity: sha512-j7ocdsLprbD9NUBnd9mfuM4h5K3W/7RvsQukNpS4ynVka93oCq8ezJa3Bwbd0IG3XM++fZU/90Z97zh909ktnA==}
+  '@1771technologies/grid-store-pro@0.0.68':
+    resolution: {integrity: sha512-CVvGFX9iaob8GxnjLZMuxLvKLJux90OIiXIBIXZd1sEiwzy3a3UOmDKEPtz41lVaknM5Plob3Kv/r9FId1BxcA==}
 
-  '@1771technologies/grid-tree-data-source@0.0.67':
-    resolution: {integrity: sha512-AQeBSaLM6ERl6gWIxZJixwlLn+3IOJ20tW7/oq6Kvuk7h5CR1JG8Y55XjmyQiFtilM0+jXkxfZdZOYN7jCtMcg==}
+  '@1771technologies/grid-tree-data-source@0.0.68':
+    resolution: {integrity: sha512-t/ozuZAnyDDc7LcdtpUlY51h3+p23rl+t/meCdzdj2huHVKWnGc3gGAWpm2m0VaGXzCVN9hgnUrtw44IElsnKg==}
 
-  '@1771technologies/grid-types@0.0.67':
-    resolution: {integrity: sha512-gm1+JplFOrlN4/9raumJ2kdeUMs1z3KBKgpUa8ytisFVQOvAmTnQWk0nryw9aMZf3eitjH/OFhK5w+UR1HNiFg==}
+  '@1771technologies/grid-types@0.0.68':
+    resolution: {integrity: sha512-8rWaybqTUqEQN67EGJObyGm9j0YBejOVacoQ5Cnli5HdqiAUkyGM1J8QDQq8DIsxAn6Ik8WV3Nbs3NhFf5+1tg==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@1771technologies/js-utils@0.0.67':
-    resolution: {integrity: sha512-p4tLtE20NSJ3aryBgHWHpmuS7VKQSRIqtV+FjOJEiA0BtQ+p8HL91PzKD7MMxgbRgTGJn+kLC41H2R/oY3Inng==}
+  '@1771technologies/js-utils@0.0.68':
+    resolution: {integrity: sha512-LQCbevGWr6nYuZswW9HBhCkmLaq4ROWPMGQEb6lMOjRNIVceKId+L3V4CS/gnxLAHb2NZCrO+OUahz8PKlczIA==}
 
-  '@1771technologies/lytenyte-core@0.0.67':
-    resolution: {integrity: sha512-wVk9OZXPpoDkuGd2G+no1C+z8U9iJJBiAsF1+tFg3+Ws0qCuqpqBVFW0+K5dfxjpsQj/9k8hTU8FurUWjTXHDw==}
+  '@1771technologies/lytenyte-core@0.0.68':
+    resolution: {integrity: sha512-CeSjmrupgtema22b7hg4dvrWCc7xRh64A45GlSEHXysv9a/cmvxJalyPxl0l2rqmlDCghwAL5RzK31FiQJUSrg==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@1771technologies/lytenyte-pro@0.0.67':
-    resolution: {integrity: sha512-HmOaVL4jq56zAkmzosj7tqk8HXAN0tL3V6akwrFkH1eD52V79tUqCO+Qe4HAijAeIoDBTmLyoB86+axps85u7A==}
+  '@1771technologies/lytenyte-pro@0.0.68':
+    resolution: {integrity: sha512-v09yK/KaW076SEz4uheS/9FRrGRPqZ7jDxl3qhuoM5s2lGhkIrFU28Vqi1eLC3h9+hFGOATwVJEWt2QB+IQjUQ==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@1771technologies/path-tree@0.0.67':
-    resolution: {integrity: sha512-enJaPgyY5K1iZPyANaJi+ZR6brdfODQxRuXJKh2DtnrnPPyr4oyPf8tcVUQ0Faba2r4Obpxbbb63v1RT+bLFmw==}
+  '@1771technologies/path-tree@0.0.68':
+    resolution: {integrity: sha512-sDJF2EAcn84d+hmac++9R+pssB5gqcvFI/Qebavdgm5/ITI9WdFeE5EgOIgz1mT1tMXiRq25Rp6ucyAXAXU6Og==}
 
-  '@1771technologies/react-cascada@0.0.67':
-    resolution: {integrity: sha512-BT3JfNLJpOKHlRNnxmXiGIAdsYUhZGoxTVtl5YXQt8V3bHuMe5YcHe8l3uvpDxbWmgEU7Y69zBpXT2mK/1p86A==}
+  '@1771technologies/react-cascada@0.0.68':
+    resolution: {integrity: sha512-/yBXTeVt8FEyuvcdEHMMTfmRrfeikic8uEZU5IM+bgyZllDxBc/txJDgoizllWAuae7qFxJ77C1MpQJLIcaOzQ==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@1771technologies/react-dragon@0.0.67':
-    resolution: {integrity: sha512-pVqAajY3u6SQGSZQE/o3deeU29E6BLIZoGWnBiV+aTnP7zhvOAOqpZq3DB5M1fysdflIzzhDLN4cAvzJ1LWaBA==}
+  '@1771technologies/react-dragon@0.0.68':
+    resolution: {integrity: sha512-mR5PYuHnfACgvp4IkZIAeRb8AAiYhRuq/ZnfzQWzujYRHOOnGL0x8d3C0QjiRi0tZfUctqR/sThRmynmLQLRtA==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@1771technologies/react-sizer@0.0.67':
-    resolution: {integrity: sha512-We10ZvK/g8ZRgVXE1JGG05QNjTSAF7hOrRsWsAXpv+P4SKremeH3nno8IQqDnCXwGSUZL6bETHe1MzmPu78Adw==}
+  '@1771technologies/react-sizer@0.0.68':
+    resolution: {integrity: sha512-/oThk5CCuTKGL/xNXsKp0NdpvN/kYeFnTruVPe6He3G/90e/gx14fJU2kNHl+KYiBgfzs6qKBc6V60Ve9LY68A==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@1771technologies/react-split-pane@0.0.67':
-    resolution: {integrity: sha512-5ONAT+X3ed1pXxggdd2EvDzPJ/HPzt0YyFeuVlKJsrL0pUzNXuEbJdoiHGnRauM8DZ55X93max5hefotE5w6Jw==}
+  '@1771technologies/react-split-pane@0.0.68':
+    resolution: {integrity: sha512-KWtzWHR8yig26ciHeU0/pElBfszDvD/jcSkESa4R+zj/oi+Gt8P0ji1Xoie/4bf+SlDd3eV8GKvCQ3jdyRewiA==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@1771technologies/react-utils@0.0.67':
-    resolution: {integrity: sha512-JoHHb2HNPxh79gBn1V6fNMqSX5wPCZnOXPbXo5i/ZlSNQGfpbsaSzS3j95E7gDaXvzDt0xj/eBq+mpPSuIDNKg==}
+  '@1771technologies/react-utils@0.0.68':
+    resolution: {integrity: sha512-iTjY04UUFPrkoetf8wLAY9/svJuqlTL4HrruLyVUhRjF+b7eFFbvAX/60AMNGE5lWIq/HxoKnkQ+chlsQJJqOg==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@1771technologies/sample-data@0.0.67':
-    resolution: {integrity: sha512-8pV36BQxMOe2qNB51Yosvz76OtqJT5hssosft02eq8u4JWVBxrJO2bd1/VVfCetYBCujrq8ueT21T58AV9O6dA==}
+  '@1771technologies/sample-data@0.0.68':
+    resolution: {integrity: sha512-LsbkD46U1KLJjHYsjKr8nP1du4s/jU8u9vq60XwJXdWIhGo+cxF+m1EJHuFb6ZUzjt3hmu3jmXwiyM/BIqrjLw==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -1387,186 +1387,186 @@ packages:
 
 snapshots:
 
-  '@1771technologies/grid-client-aggregator@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-client-aggregator@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-client-data-source-core@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-client-data-source-core@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-client-aggregator': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-client-filter': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-client-sort': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-graph': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-cascada': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-aggregator': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-filter': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-sort': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-graph': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-cascada': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-client-data-source-pro@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-client-data-source-pro@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-client-aggregator': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-client-data-source-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-client-filter': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-client-sort': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core-pro': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-graph': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-cascada': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-aggregator': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-data-source-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-filter': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-sort': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core-pro': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-graph': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-cascada': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-client-filter@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-client-filter@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-client-sort@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-client-sort@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-constants@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-constants@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-core-pro@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-core-pro@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-core@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-core@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-design': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-design': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-design@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-design@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-graph@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-graph@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-provider@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-provider@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-shared-state@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-shared-state@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-cascada': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-cascada': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-store-core@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-store-core@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-client-data-source-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-shared-state': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-cascada': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-data-source-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-shared-state': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-cascada': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-store-pro@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-store-pro@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core-pro': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-shared-state': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-store-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-cascada': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core-pro': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-shared-state': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-store-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-cascada': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-tree-data-source@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-tree-data-source@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/grid-client-data-source-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-client-filter': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-client-sort': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-constants': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core-pro': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-graph': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/path-tree': 0.0.67
-      '@1771technologies/react-cascada': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-data-source-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-filter': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-sort': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-constants': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core-pro': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-graph': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/path-tree': 0.0.68
+      '@1771technologies/react-cascada': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@1771technologies/grid-types@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/grid-types@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@1771technologies/js-utils@0.0.67': {}
+  '@1771technologies/js-utils@0.0.68': {}
 
-  '@1771technologies/lytenyte-core@0.0.67(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))':
+  '@1771technologies/lytenyte-core@0.0.68(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))':
     dependencies:
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-design': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-provider': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-store-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-dragon': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/react-sizer': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/react-utils': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-design': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-provider': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-store-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-dragon': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/react-sizer': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/react-utils': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       zustand: 5.0.3(@types/react@19.1.2)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
@@ -1575,22 +1575,22 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  '@1771technologies/lytenyte-pro@0.0.67(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))':
+  '@1771technologies/lytenyte-pro@0.0.68(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))':
     dependencies:
-      '@1771technologies/grid-client-data-source-pro': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-core': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-design': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-provider': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-store-pro': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-tree-data-source': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/grid-types': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/lytenyte-core': 0.0.67(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
-      '@1771technologies/react-cascada': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/react-dragon': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/react-sizer': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/react-split-pane': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/react-utils': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-client-data-source-pro': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-core': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-design': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-provider': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-store-pro': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-tree-data-source': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/grid-types': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/lytenyte-core': 0.0.68(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
+      '@1771technologies/react-cascada': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/react-dragon': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/react-sizer': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/react-split-pane': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/react-utils': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@base-ui-components/react': 1.0.0-alpha.7(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
@@ -1599,42 +1599,42 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  '@1771technologies/path-tree@0.0.67': {}
+  '@1771technologies/path-tree@0.0.68': {}
 
-  '@1771technologies/react-cascada@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/react-cascada@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@1771technologies/react-dragon@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/react-dragon@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-cascada': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@1771technologies/react-utils': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-cascada': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/react-utils': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@1771technologies/react-sizer@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/react-sizer@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-utils': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-utils': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@1771technologies/react-split-pane@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/react-split-pane@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/js-utils': 0.0.67
-      '@1771technologies/react-utils': 0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@1771technologies/js-utils': 0.0.68
+      '@1771technologies/react-utils': 0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@1771technologies/react-utils@0.0.67(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@1771technologies/react-utils@0.0.68(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@1771technologies/js-utils': 0.0.67
+      '@1771technologies/js-utils': 0.0.68
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@1771technologies/sample-data@0.0.67': {}
+  '@1771technologies/sample-data@0.0.68': {}
 
   '@ampproject/remapping@2.3.0':
     dependencies:

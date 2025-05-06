@@ -5,22 +5,23 @@ import {
 } from "@1771technologies/lytenyte-pro";
 import "@1771technologies/lytenyte-pro/grid.css";
 import { ColumnProReact } from "@1771technologies/lytenyte-pro/types";
-import { stockData } from "@1771technologies/sample-data/stock-data-smaller";
+import { performance } from "@1771technologies/sample-data/performance";
 import { useId } from "react";
 
 const columns: ColumnProReact[] = [
-  { field: 0, id: "ticker" },
-  { field: 1, id: "full", widthFlex: 1 },
-  { field: 2, id: "analyst-rating" },
-  { field: (d) => `$${d[3]}`, id: "price" },
-  {
-    field: (d) => `£${(d[3] / 1.28).toFixed(2)}`,
-    id: "Price (GBP @ 1.28)",
-  },
+  { id: "name" },
+  { id: "q1", field: { kind: 1, path: "performance.q1" } },
+  { id: "q2", field: { kind: 1, path: "performance.q2" } },
+  { id: "q3", field: { kind: 1, path: "performance.q3" } },
+  { id: "q4", field: { kind: 1, path: "performance.q4" } },
+  { id: "q1 revenue", field: { kind: 1, path: "revenue[0]" } },
+  { id: "q2 revenue", field: { kind: 1, path: "revenue[1]" } },
+  { id: "q3 revenue", field: { kind: 1, path: "revenue[2]" } },
+  { id: "q4 revenue", field: { kind: 1, path: "revenue[3]" } },
 ];
 
 export function App() {
-  const ds = useClientDataSource({ data: stockData });
+  const ds = useClientDataSource({ data: performance });
 
   const grid = useLyteNytePro({
     gridId: useId(),
