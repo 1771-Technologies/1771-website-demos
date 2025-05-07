@@ -1,4 +1,4 @@
-# Client Row Data Source
+# Client Row Data Source Pinned
 
 See [Client Row Data Source Guide](https://1771technologies.com/docs/row-client-data-source).
 

@@ -10,10 +10,6 @@ import { useId } from "react";
 
 const columns: ColumnProReact[] = [
   { id: "Company" },
-  { id: "Founded" },
-  { id: "Employee Cnt" },
-  { id: "Country" },
-  { id: "Price" },
   {
     id: "YearEnd",
     headerName: "Year End",
@@ -21,6 +17,9 @@ const columns: ColumnProReact[] = [
     type: "date",
     uiHints: { sortButton: true },
   },
+  { id: "Employee Cnt" },
+  { id: "Country" },
+  { id: "Price" },
 ];
 
 export function App() {
@@ -41,7 +40,7 @@ export function App() {
   });
 
   return (
-    <div style={{ height: 700, display: "flex", flexDirection: "column" }}>
+    <div style={{ height: 500, display: "flex", flexDirection: "column" }}>
       <div style={{ flex: "1" }}>
         <LyteNyteGrid grid={grid} />
       </div>
