@@ -1,6 +1,6 @@
-# Column Field Number Index
+# Column Group Initial State
 
-See [Columns Field Guide](https://1771technologies.com/docs/column-field).
+See [Column Groups Guide](https://1771technologies.com/docs/column-groups).
 
 - [1771 Technologies](https://1771technologies.com)
 - [LyteNyte Pricing](https://1771technologies.com/pricing)
