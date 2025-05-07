@@ -1,4 +1,4 @@
-# Column Pinning Start
+# Column Pinning End
 
 See [Columns Pinning Guide](https://1771technologies.com/docs/column-pinning).
 
