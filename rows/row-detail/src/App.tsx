@@ -37,6 +37,7 @@ export function App() {
     rowDataSource: ds,
     columns,
 
+    rowDetailExpansions: new Set(["0-center"]),
     rowDetailEnabled: true,
     rowDetailRenderer: (p) => {
       if (!p.api.rowIsLeaf(p.row)) return;
@@ -84,7 +85,7 @@ function PriceChart({
   }, [row.data, row.id]);
 
   return (
-    <ResponsiveContainer height={300} width="100%">
+    <ResponsiveContainer height="100%" width="100%">
       <AreaChart data={data}>
         <defs>
           <linearGradient key={row.id} id={row.id} x1="0" y1="0" x2="0" y2="1">
