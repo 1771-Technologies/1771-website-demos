@@ -1,4 +1,4 @@
-# Row Selection On Click
+# Row Selection Predicate Function
 
 See [Row Selection Guide](https://1771technologies.com/docs/row-selection).
 
