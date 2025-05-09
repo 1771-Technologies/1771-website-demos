@@ -25,6 +25,8 @@ export function App() {
       return {};
     },
     pathFromData: (d) => d.path.split("/").filter((c) => !!c),
+    distinctNonAdjacentPaths: true,
+    pathSeparator: "/",
   });
 
   const grid = useLyteNytePro({

@@ -1,4 +1,4 @@
-# Tree Row Data Source
+# Tree Row Data Source Distinct Paths
 
 See [Tree Row Data Source Guide](https://1771technologies.com/docs/row-tree-data-source).
 

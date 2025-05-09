@@ -25,6 +25,10 @@ export function App() {
       return {};
     },
     pathFromData: (d) => d.path.split("/").filter((c) => !!c),
+    distinctNonAdjacentPaths: true,
+    pathSeparator: "/",
+    topData: fileData.slice(0, 2),
+    bottomData: fileData.slice(0, 1),
   });
 
   const grid = useLyteNytePro({
