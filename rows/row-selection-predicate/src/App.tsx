@@ -41,8 +41,7 @@ export function App() {
     rowGroupModel: ["job", "education"],
     rowSelectionMode: "multiple",
     rowSelectionCheckbox: "normal",
-    rowSelectionPredicate: (r) =>
-      r.api.rowIsGroup(r.row) && r.row.id.split("/").length === 1,
+    rowSelectionPredicate: "group-only",
     rowGroupExpansions: {
       "root:services": true,
       "root:services/secondary": true,
