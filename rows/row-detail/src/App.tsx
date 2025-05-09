@@ -50,7 +50,7 @@ export function App() {
             padding: "20px 20px 20px 0px",
           }}
         >
-          <PriceChart row={p.row} />;
+          <PriceChart row={p.row} />
         </div>
       );
     },
