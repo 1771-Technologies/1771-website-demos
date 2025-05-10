@@ -1,6 +1,6 @@
-# Row Full Width
+# Row Dragging
 
-See [Row Full Guide](https://1771technologies.com/docs/row-full-width).
+See [Row Dragging Guide](https://1771technologies.com/docs/row-dragging).
 
 - [1771 Technologies](https://1771technologies.com)
 - [LyteNyte Pricing](https://1771technologies.com/pricing)
