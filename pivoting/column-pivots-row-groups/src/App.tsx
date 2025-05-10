@@ -25,6 +25,7 @@ export function App() {
     gridId: useId(),
     rowDataSource: ds,
     columns,
+    rowGroupModel: ["job", "education"],
 
     columnPivotModeIsOn: true,
     columnPivotModel: ["marital"],
