@@ -1,6 +1,6 @@
-# Row Pagination
+# Row Sorting
 
-See [Row Pagination](https://1771technologies.com/docs/row-pagination).
+See [Row Sorting](https://1771technologies.com/docs/row-sorting).
 
 - [1771 Technologies](https://1771technologies.com)
 - [LyteNyte Pricing](https://1771technologies.com/pricing)
