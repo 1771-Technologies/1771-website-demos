@@ -53,8 +53,8 @@ export function App() {
 
   grid2.useEvent("onRowDragDrop", (p) => {
     alert(
-      `You dragged over ${p.overIndex} from ${p.externalGridApi
-        .getState()
+      `You dragged over ${p.overIndex} from ${p
+        .externalGridApi!.getState()
         .gridId.peek()}`
     );
   });
