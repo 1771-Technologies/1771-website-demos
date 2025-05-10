@@ -49,12 +49,10 @@ export function App() {
         onClick={async () => {
           const rect = await grid.api.exportDataRect();
 
-          console.log(rect);
-
           downloadBlob(await getExcelFile(rect), "data.xlsx");
         }}
       >
-        Download CSV
+        Download Excel File
       </button>
       <div style={{ flex: "1" }}>
         <LyteNyteGrid grid={grid} />
