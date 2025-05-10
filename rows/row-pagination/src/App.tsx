@@ -58,7 +58,6 @@ export function App() {
           siblingCount={2}
           page={grid.state.paginateCurrentPage.use()}
           onPageChange={(d) => {
-            console.log(d.page);
             grid.state.paginateCurrentPage.set(d.page);
           }}
         >
