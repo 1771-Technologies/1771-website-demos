@@ -1,4 +1,4 @@
-# Row Dragging Multiple Rows
+# Row Dragging Between Grids
 
 See [Row Dragging Guide](https://1771technologies.com/docs/row-dragging).
 
