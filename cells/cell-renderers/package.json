@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@1771technologies/lytenyte-pro": "^0.0.74",
-    "@1771technologies/sample-data": "^0.0.74",
+    "@1771technologies/lytenyte-pro": "^0.0.75",
+    "@1771technologies/sample-data": "^0.0.75",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-sparklines": "^1.7.0"
