@@ -1,6 +1,6 @@
 # Column Filtering Quick Search
 
-See [Column Filtering Guide](https://1771technologies.com/docs/filter-column-filters).
+See [Filter Quick Search Guide](https://1771technologies.com/docs/filter-quick-filter).
 
 - [1771 Technologies](https://1771technologies.com)
 - [LyteNyte Pricing](https://1771technologies.com/pricing)

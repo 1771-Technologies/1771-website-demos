@@ -1,6 +1,6 @@
-# Column Filtering In Filter
+# Filter Manager
 
-See [Column In Filter Guide](https://1771technologies.com/docs/filter-in-column-filter).
+See [Filter Manager Guide](https://1771technologies.com/docs/component-filter-manager).
 
 - [1771 Technologies](https://1771technologies.com)
 - [LyteNyte Pricing](https://1771technologies.com/pricing)
