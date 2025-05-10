@@ -1,4 +1,4 @@
-# Column Filtering Number
+# Column Filtering Function
 
 See [Column Filtering Guide](https://1771technologies.com/docs/filter-column-filters).
 
