@@ -1,6 +1,6 @@
-# CSV Export
+# Clipboard
 
-See [CSV Export Guide](https://1771technologies.com/docs/export-csv).
+See [Clipboard Guide](https://1771technologies.com/docs/export-clipboard).
 
 - [1771 Technologies](https://1771technologies.com)
 - [LyteNyte Pricing](https://1771technologies.com/pricing)
