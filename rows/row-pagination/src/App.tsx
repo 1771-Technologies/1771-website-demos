@@ -56,9 +56,9 @@ export function App() {
           count={bankDataSmall.length}
           pageSize={20}
           siblingCount={2}
-          page={grid.state.paginateCurrentPage.use()}
+          page={grid.state.paginateCurrentPage.use() + 1}
           onPageChange={(d) => {
-            grid.state.paginateCurrentPage.set(d.page);
+            grid.state.paginateCurrentPage.set(d.page - 1);
           }}
         >
           <Pagination.PrevTrigger>Previous Page</Pagination.PrevTrigger>
