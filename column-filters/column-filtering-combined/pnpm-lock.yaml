@@ -8,10 +8,10 @@ importers:
   .:
     dependencies:
       "@1771technologies/lytenyte-pro":
-        specifier: ^0.0.78
+        specifier: ^0.9.0
         version: 0.0.75(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
       "@1771technologies/sample-data":
-        specifier: ^0.0.78
+        specifier: ^0.9.0
         version: 0.0.75
       react:
         specifier: ^19.0.0
