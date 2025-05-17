@@ -87,10 +87,6 @@ export function App() {
     },
 
     columnBase: {
-      resizable: true,
-      movable: true,
-      sortable: true,
-
       uiHints: {
         columnMenu: true,
       },

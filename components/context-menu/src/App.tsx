@@ -57,6 +57,19 @@ export function App() {
               <Menu.Item>Excel Export</Menu.Item>
               <Menu.Item>PDF Export</Menu.Item>
             </Menu.Group>
+
+            <Menu.Submenu
+              trigger={<Menu.SubmenuTrigger>Trigger Me</Menu.SubmenuTrigger>}
+            >
+              <Menu.SubmenuPositioner>
+                <Menu.Container>
+                  <Menu.Item>Label 1</Menu.Item>
+                  <Menu.Item>Label 2</Menu.Item>
+                  <Menu.Item>Label 3</Menu.Item>
+                </Menu.Container>
+              </Menu.SubmenuPositioner>
+            </Menu.Submenu>
+
             <Menu.Separator />
 
             <Menu.Checkbox>
@@ -85,17 +98,6 @@ export function App() {
           </Menu.Container>
         </Menu.Positioner>
       );
-    },
-
-    columnBase: {
-      resizable: true,
-      movable: true,
-      sortable: true,
-
-      uiHints: {
-        sortButton: true,
-        columnMenu: true,
-      },
     },
   });
 

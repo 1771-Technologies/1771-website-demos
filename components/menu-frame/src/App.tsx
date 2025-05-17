@@ -89,17 +89,6 @@ export function App() {
         },
       },
     },
-
-    columnBase: {
-      resizable: true,
-      movable: true,
-      sortable: true,
-
-      uiHints: {
-        sortButton: true,
-        columnMenu: true,
-      },
-    },
   });
 
   return (
