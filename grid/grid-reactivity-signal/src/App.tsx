@@ -1,14 +1,13 @@
-import {
-  LyteNyteGrid,
-  useLyteNytePro,
-  useClientDataSource,
-} from "@1771technologies/lytenyte-pro";
+"use client";
+import { Grid, useClientRowDataSource } from "@1771technologies/lytenyte-pro";
 import "@1771technologies/lytenyte-pro/grid.css";
-import { ColumnProReact } from "@1771technologies/lytenyte-pro/types";
+import type { Column } from "@1771technologies/lytenyte-pro/types";
 import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
 import { useId, useMemo } from "react";
 
-const columns: ColumnProReact[] = [
+type BankData = (typeof bankDataSmall)[number];
+
+const columns: Column<BankData>[] = [
   { id: "age", type: "number" },
   { id: "job" },
   { id: "balance", type: "number" },
@@ -28,43 +27,81 @@ const columns: ColumnProReact[] = [
   { id: "y" },
 ];
 
-export function App() {
-  const ds = useClientDataSource({ data: bankDataSmall });
+export default function GridReactivitySignal() {
+  const ds = useClientRowDataSource({ data: bankDataSmall });
 
-  const grid = useLyteNytePro({
+  const grid = Grid.useLyteNyte({
     gridId: useId(),
     rowDataSource: ds,
     columns,
 
-    rowSelectionSelectedIds: new Set(["3-center", "4-center"]),
-    rowSelectionCheckbox: "normal",
+    rowSelectedIds: new Set(["3", "4"]),
     rowSelectionMode: "multiple",
-    rowSelectionMultiSelectOnClick: true,
-    rowSelectionPointerActivator: "single-click",
+    rowSelectionActivator: "single-click",
   });
 
-  const selectedRows = grid.state.rowSelectionSelectedIds.use();
+  const selectedRows = grid.state.rowSelectedIds.useValue();
   const selectedRow = useMemo(() => {
     if (!selectedRows.size) return null;
 
     return [...selectedRows.values()].join(", ");
   }, [selectedRows]);
 
+  const view = grid.view.useValue();
+
   return (
-    <div style={{ height: 700, display: "flex", flexDirection: "column" }}>
-      <div>
+    <div
+      className="lng-grid"
+      style={{ display: "flex", flexDirection: "column" }}
+    >
+      <div className="p-2">
         <button
-          onClick={() => grid.state.rowSelectionSelectedIds.set(new Set())}
+          className="bg-gray-900 text-white border border-gray-600 rounded px-2"
+          onClick={() => grid.state.rowSelectedIds.set(new Set())}
         >
           Clear Row Selection
         </button>
       </div>
-      <div style={{ padding: 8, display: "flex", gap: 8 }}>
+      <div
+        className="font-bold max-w-full max-h-[200px] overflow-auto"
+        style={{ padding: 8, display: "flex", gap: 8, scrollbarWidth: "thin" }}
+      >
         {selectedRow && `Currently selected rows: ${selectedRow}`}
         {!selectedRow && "No rows selected"}
       </div>
-      <div style={{ flex: "1" }}>
-        <LyteNyteGrid grid={grid} />
+      <div style={{ height: 500 }}>
+        <Grid.Root grid={grid}>
+          <Grid.Viewport>
+            <Grid.Header>
+              {view.header.layout.map((row, i) => {
+                return (
+                  <Grid.HeaderRow key={i} headerRowIndex={i}>
+                    {row.map((c) => {
+                      if (c.kind === "group") return null;
+
+                      return <Grid.HeaderCell key={c.id} cell={c} />;
+                    })}
+                  </Grid.HeaderRow>
+                );
+              })}
+            </Grid.Header>
+            <Grid.RowsContainer>
+              <Grid.RowsCenter>
+                {view.rows.center.map((row) => {
+                  if (row.kind === "full-width") return null;
+
+                  return (
+                    <Grid.Row row={row} key={row.id}>
+                      {row.cells.map((c) => {
+                        return <Grid.Cell key={c.id} cell={c} />;
+                      })}
+                    </Grid.Row>
+                  );
+                })}
+              </Grid.RowsCenter>
+            </Grid.RowsContainer>
+          </Grid.Viewport>
+        </Grid.Root>
       </div>
     </div>
   );

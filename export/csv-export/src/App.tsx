@@ -1,14 +1,13 @@
-import {
-  LyteNyteGrid,
-  useLyteNytePro,
-  useClientDataSource,
-} from "@1771technologies/lytenyte-pro";
+"use client";
+
+import { Grid, useClientRowDataSource } from "@1771technologies/lytenyte-pro";
 import "@1771technologies/lytenyte-pro/grid.css";
-import { ColumnProReact } from "@1771technologies/lytenyte-pro/types";
+import type { Column } from "@1771technologies/lytenyte-pro/types";
 import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
 import { useId } from "react";
 
-const columns: ColumnProReact[] = [
+type BankData = (typeof bankDataSmall)[number];
+const columns: Column<BankData>[] = [
   { id: "age", type: "number" },
   { id: "job" },
   { id: "balance", type: "number" },
@@ -28,48 +27,98 @@ const columns: ColumnProReact[] = [
   { id: "y" },
 ];
 
-export function App() {
-  const ds = useClientDataSource({
+export default function CSVExport() {
+  const ds = useClientRowDataSource({
     data: bankDataSmall,
   });
 
-  const grid = useLyteNytePro({
+  const grid = Grid.useLyteNyte({
     gridId: useId(),
     rowDataSource: ds,
     columns,
   });
 
+  const view = grid.view.useValue();
+
   return (
-    <div style={{ height: 500, display: "flex", flexDirection: "column" }}>
-      <button
-        onClick={async () => {
-          downloadBlob(await grid.api.exportCsvFile(), "data.csv");
-        }}
-      >
-        Download CSV
-      </button>
-      <button
-        onClick={async () => {
-          downloadBlob(
-            await grid.api.exportCsvFile({ includeHeader: true }),
-            "data.csv"
-          );
-        }}
-      >
-        Download CSV (with headers)
-      </button>
-      <button
-        onClick={async () => {
-          downloadBlob(
-            await grid.api.exportCsvFile({ delimiter: ";" }),
-            "data.csv"
-          );
-        }}
-      >
-        Download CSV (colon delimited)
-      </button>
-      <div style={{ flex: "1" }}>
-        <LyteNyteGrid grid={grid} />
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className="flex gap-8 py-2 px-2">
+        <button
+          className="bg-gray-900 text-white border border-gray-600 rounded px-2"
+          onClick={async () => {
+            downloadBlob(await grid.api.exportCsvFile(), "data.csv");
+          }}
+        >
+          CSV
+        </button>
+        <button
+          className="bg-gray-900 text-white border border-gray-600 rounded px-2"
+          onClick={async () => {
+            downloadBlob(
+              await grid.api.exportCsvFile({ includeHeader: true }),
+              "data.csv"
+            );
+          }}
+        >
+          CSV (with headers)
+        </button>
+        <button
+          className="bg-gray-900 text-white border border-gray-600 rounded px-2"
+          onClick={async () => {
+            downloadBlob(
+              await grid.api.exportCsvFile({ delimiter: ";" }),
+              "data.csv"
+            );
+          }}
+        >
+          CSV (colon delimited)
+        </button>
+      </div>
+      <div className="lng-grid" style={{ height: 500 }}>
+        <Grid.Root grid={grid}>
+          <Grid.Viewport>
+            <Grid.Header>
+              {view.header.layout.map((row, i) => {
+                return (
+                  <Grid.HeaderRow key={i} headerRowIndex={i}>
+                    {row.map((c) => {
+                      if (c.kind === "group") return null;
+
+                      return (
+                        <Grid.HeaderCell
+                          key={c.id}
+                          cell={c}
+                          className="flex w-full h-full capitalize px-2 items-center"
+                        />
+                      );
+                    })}
+                  </Grid.HeaderRow>
+                );
+              })}
+            </Grid.Header>
+            <Grid.RowsContainer>
+              <Grid.RowsCenter>
+                {view.rows.center.map((row) => {
+                  if (row.kind === "full-width") return null;
+
+                  return (
+                    <Grid.Row row={row} key={row.id}>
+                      {row.cells.map((c) => {
+                        return (
+                          <Grid.Cell
+                            key={c.id}
+                            cell={c}
+                            className="text-sm flex items-center px-2 h-full w-full"
+                          />
+                        );
+                      })}
+                    </Grid.Row>
+                  );
+                })}
+              </Grid.RowsCenter>
+            </Grid.RowsContainer>
+          </Grid.Viewport>
+        </Grid.Root>
       </div>
     </div>
   );

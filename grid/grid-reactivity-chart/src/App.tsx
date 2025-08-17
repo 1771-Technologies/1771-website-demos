@@ -1,12 +1,9 @@
-import {
-  LyteNyteGrid,
-  useLyteNytePro,
-  useClientDataSource,
-} from "@1771technologies/lytenyte-pro";
-import "@1771technologies/lytenyte-pro/grid.css";
-import {
-  ColumnProReact,
-  GridProReact,
+"use client";
+
+import { Grid, useClientRowDataSource } from "@1771technologies/lytenyte-pro";
+import type {
+  Column,
+  Grid as GridType,
 } from "@1771technologies/lytenyte-pro/types";
 import { companiesWithPricePerf } from "@1771technologies/sample-data/companies-with-price-performance";
 import { useId, useMemo } from "react";
@@ -21,7 +18,7 @@ import {
 
 type RowData = (typeof companiesWithPricePerf)[number];
 
-const columns: ColumnProReact[] = [
+const columns: Column<RowData>[] = [
   { id: "Company" },
   { id: "Founded" },
   { id: "Employee Cnt" },
@@ -29,28 +26,73 @@ const columns: ColumnProReact[] = [
   { id: "Price" },
 ];
 
-export function App() {
-  const ds = useClientDataSource({ data: companiesWithPricePerf });
+export default function GridReactivityChart() {
+  const ds = useClientRowDataSource({ data: companiesWithPricePerf });
 
-  const grid = useLyteNytePro({
+  const grid = Grid.useLyteNyte({
     gridId: useId(),
     rowDataSource: ds,
     columns,
 
-    rowSelectionSelectedIds: new Set(["0-center"]),
-
-    rowSelectionCheckbox: "normal",
+    rowSelectedIds: new Set(["0"]),
     rowSelectionMode: "multiple",
-    rowSelectionMultiSelectOnClick: true,
-    rowSelectionPointerActivator: "single-click",
+    rowSelectionActivator: "single-click",
   });
 
+  const view = grid.view.useValue();
+
   return (
-    <div style={{ height: 800, display: "flex", flexDirection: "column" }}>
-      <div style={{ flex: "1" }}>
-        <LyteNyteGrid grid={grid} />
+    <div
+      className="lng-grid"
+      style={{ display: "flex", flexDirection: "column" }}
+    >
+      <div style={{ height: 500 }}>
+        <Grid.Root grid={grid}>
+          <Grid.Viewport>
+            <Grid.Header>
+              {view.header.layout.map((row, i) => {
+                return (
+                  <Grid.HeaderRow key={i} headerRowIndex={i}>
+                    {row.map((c) => {
+                      if (c.kind === "group") return null;
+
+                      return (
+                        <Grid.HeaderCell
+                          key={c.id}
+                          cell={c}
+                          className="flex w-full h-full capitalize px-2 items-center"
+                        />
+                      );
+                    })}
+                  </Grid.HeaderRow>
+                );
+              })}
+            </Grid.Header>
+            <Grid.RowsContainer>
+              <Grid.RowsCenter>
+                {view.rows.center.map((row) => {
+                  if (row.kind === "full-width") return null;
+
+                  return (
+                    <Grid.Row row={row} key={row.id}>
+                      {row.cells.map((c) => {
+                        return (
+                          <Grid.Cell
+                            key={c.id}
+                            cell={c}
+                            className="text-sm flex items-center px-2 h-full w-full"
+                          />
+                        );
+                      })}
+                    </Grid.Row>
+                  );
+                })}
+              </Grid.RowsCenter>
+            </Grid.RowsContainer>
+          </Grid.Viewport>
+        </Grid.Root>
       </div>
-      <div style={{ padding: "10px 0px", borderTop: "1px solid gray" }}>
+      <div style={{ borderTop: "1px solid gray" }} className="pr-10 pt-2">
         {" "}
         <PriceChart grid={grid} />
       </div>
@@ -58,9 +100,9 @@ export function App() {
   );
 }
 
-function PriceChart({ grid }: { grid: GridProReact<RowData> }) {
+function PriceChart({ grid }: { grid: GridType<RowData> }) {
   const state = grid.state;
-  const selected = state.rowSelectionSelectedIds.use();
+  const selected = state.rowSelectedIds.useValue();
 
   const rows = useMemo(() => {
     return [...selected.values()]
@@ -76,7 +118,7 @@ function PriceChart({ grid }: { grid: GridProReact<RowData> }) {
       );
 
     rows.forEach((row) => {
-      if (!row || !grid.api.rowIsLeaf(row)) return;
+      if (!row?.data || !grid.api.rowIsLeaf(row)) return;
 
       const data = row.data["1 Year Perf"];
 
@@ -118,8 +160,8 @@ function PriceChart({ grid }: { grid: GridProReact<RowData> }) {
 
           return (
             <Area
-              key={row.id}
               type="monotone"
+              key={row.id}
               dataKey={row.id}
               stroke={color.solid}
               fillOpacity={1}

@@ -1,18 +1,17 @@
-import {
-  LyteNyteGrid,
-  useLyteNytePro,
-  useClientDataSource,
-} from "@1771technologies/lytenyte-pro";
+"use client";
+
+import { Grid, useClientRowDataSource } from "@1771technologies/lytenyte-pro";
 import "@1771technologies/lytenyte-pro/grid.css";
-import {
-  ColumnProReact,
-  DataRectResultProReact,
+import type {
+  Column,
+  ExportDataRectResult,
 } from "@1771technologies/lytenyte-pro/types";
 import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
-import { Worksheet } from "exceljs";
+import type { Worksheet } from "exceljs";
 import { useId } from "react";
 
-const columns: ColumnProReact[] = [
+type BankData = (typeof bankDataSmall)[number];
+const columns: Column<BankData>[] = [
   { id: "age", type: "number" },
   { id: "job" },
   { id: "balance", type: "number" },
@@ -32,30 +31,78 @@ const columns: ColumnProReact[] = [
   { id: "y" },
 ];
 
-export function App() {
-  const ds = useClientDataSource({
+export default function ExcelExport() {
+  const ds = useClientRowDataSource({
     data: bankDataSmall,
   });
 
-  const grid = useLyteNytePro({
+  const grid = Grid.useLyteNyte({
     gridId: useId(),
     rowDataSource: ds,
     columns,
   });
 
-  return (
-    <div style={{ height: 500, display: "flex", flexDirection: "column" }}>
-      <button
-        onClick={async () => {
-          const rect = await grid.api.exportDataRect();
+  const view = grid.view.useValue();
 
-          downloadBlob(await getExcelFile(rect), "data.xlsx");
-        }}
-      >
-        Download Excel File
-      </button>
-      <div style={{ flex: "1" }}>
-        <LyteNyteGrid grid={grid} />
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className="p-2">
+        <button
+          className="bg-gray-900 text-white border border-gray-600 rounded px-2"
+          onClick={async () => {
+            const rect = await grid.api.exportDataRect();
+
+            downloadBlob(await getExcelFile(rect), "data.xlsx");
+          }}
+        >
+          Download Excel File
+        </button>
+      </div>
+      <div className="lng-grid" style={{ height: 500 }}>
+        <Grid.Root grid={grid}>
+          <Grid.Viewport>
+            <Grid.Header>
+              {view.header.layout.map((row, i) => {
+                return (
+                  <Grid.HeaderRow key={i} headerRowIndex={i}>
+                    {row.map((c) => {
+                      if (c.kind === "group") return null;
+
+                      return (
+                        <Grid.HeaderCell
+                          key={c.id}
+                          cell={c}
+                          className="flex w-full h-full capitalize px-2 items-center"
+                        />
+                      );
+                    })}
+                  </Grid.HeaderRow>
+                );
+              })}
+            </Grid.Header>
+            <Grid.RowsContainer>
+              <Grid.RowsCenter>
+                {view.rows.center.map((row) => {
+                  if (row.kind === "full-width") return null;
+
+                  return (
+                    <Grid.Row row={row} key={row.id}>
+                      {row.cells.map((c) => {
+                        return (
+                          <Grid.Cell
+                            key={c.id}
+                            cell={c}
+                            className="text-sm flex items-center px-2 h-full w-full"
+                          />
+                        );
+                      })}
+                    </Grid.Row>
+                  );
+                })}
+              </Grid.RowsCenter>
+            </Grid.RowsContainer>
+          </Grid.Viewport>
+        </Grid.Root>
       </div>
     </div>
   );
@@ -89,7 +136,7 @@ function downloadBlob(blob: Blob, name: string) {
   document.body.removeChild(link);
 }
 
-async function getExcelFile(d: DataRectResultProReact) {
+async function getExcelFile(d: ExportDataRectResult<BankData>) {
   const excelJs = await import("exceljs");
   const workbook = new excelJs.Workbook();
 
@@ -116,7 +163,7 @@ async function getExcelFile(d: DataRectResultProReact) {
 
   // Define columns
   worksheet.columns = d.columns.map((column, index) => ({
-    header: d.header[index] || column.headerName,
+    header: d.headers[index] || column.name,
     key: index.toString(),
     width: Math.max(column.id!.length + 2, 12), // Dynamic width based on header name length
     style: {
@@ -197,7 +244,7 @@ async function getExcelFile(d: DataRectResultProReact) {
   // Apply auto-filters to the header row
   worksheet.autoFilter = {
     from: { row: 1, column: 1 },
-    to: { row: 1, column: d.header.length },
+    to: { row: 1, column: d.headers.length },
   };
 
   // Freeze the top row

@@ -1,23 +1,26 @@
-import {
-  LyteNyteGrid,
-  useClientDataSource,
-  useLyteNytePro,
-} from "@1771technologies/lytenyte-pro";
-import "@1771technologies/lytenyte-pro/grid.css";
-import { ColumnProReact } from "@1771technologies/lytenyte-pro/types";
-import { Menu } from "@1771technologies/lytenyte-pro/menu";
-import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
-import { useId } from "react";
+"use client";
 
-const columns: ColumnProReact[] = [
-  { id: "age", type: "number", groupPath: ["Specifics"] },
-  { id: "job", groupPath: ["Specifics"] },
+import { useClientRowDataSource, Grid } from "@1771technologies/lytenyte-pro";
+import "@1771technologies/lytenyte-pro/grid.css";
+import type {
+  Column,
+  PositionUnion,
+} from "@1771technologies/lytenyte-pro/types";
+import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
+import { ContextMenu } from "radix-ui";
+import { useId, useState } from "react";
+
+type BankData = (typeof bankDataSmall)[number];
+
+const columns: Column<BankData>[] = [
+  { id: "age", type: "number" },
+  { id: "job" },
   { id: "balance", type: "number" },
   { id: "education" },
   { id: "marital" },
-  { id: "default", groupPath: ["Hosing"] },
-  { id: "housing", groupPath: ["Hosing"] },
-  { id: "loan", groupPath: ["Hosing"] },
+  { id: "default" },
+  { id: "housing" },
+  { id: "loan" },
   { id: "contact" },
   { id: "day", type: "number" },
   { id: "month" },
@@ -29,83 +32,106 @@ const columns: ColumnProReact[] = [
   { id: "y" },
 ];
 
-export function App() {
-  const ds = useClientDataSource({
-    data: bankDataSmall,
-  });
+export default function ContextMenuDemo() {
+  const ds = useClientRowDataSource({ data: bankDataSmall });
 
-  const grid = useLyteNytePro({
+  const grid = Grid.useLyteNyte({
     gridId: useId(),
-    columns: columns,
     rowDataSource: ds,
-
-    contextMenuPredicate: (t) => t.menuTarget === "cell",
-    contextMenuRenderer: () => {
-      return (
-        <Menu.Positioner>
-          <Menu.Container>
-            <Menu.Item>Label 1</Menu.Item>
-            <Menu.Item>Label 2</Menu.Item>
-            <Menu.Item>Label 3</Menu.Item>
-            <Menu.Separator />
-            <Menu.Item>Label 4</Menu.Item>
-            <Menu.Item>Label 5</Menu.Item>
-            <Menu.Item disabled>Label 6</Menu.Item>
-            <Menu.Group>
-              <Menu.GroupLabel>Export</Menu.GroupLabel>
-              <Menu.Item>CSX Export</Menu.Item>
-              <Menu.Item>Excel Export</Menu.Item>
-              <Menu.Item>PDF Export</Menu.Item>
-            </Menu.Group>
-
-            <Menu.Submenu
-              trigger={<Menu.SubmenuTrigger>Trigger Me</Menu.SubmenuTrigger>}
-            >
-              <Menu.SubmenuPositioner>
-                <Menu.Container>
-                  <Menu.Item>Label 1</Menu.Item>
-                  <Menu.Item>Label 2</Menu.Item>
-                  <Menu.Item>Label 3</Menu.Item>
-                </Menu.Container>
-              </Menu.SubmenuPositioner>
-            </Menu.Submenu>
-
-            <Menu.Separator />
-
-            <Menu.Checkbox>
-              <span>Minify</span>
-              <Menu.CheckboxIndicator />
-            </Menu.Checkbox>
-            <Menu.Checkbox>
-              <span>Expand</span>
-              <Menu.CheckboxIndicator />
-            </Menu.Checkbox>
-
-            <Menu.RadioGroup>
-              <Menu.Radio value="alpha">
-                <span>Alpha</span>
-                <Menu.RadioIndicator />
-              </Menu.Radio>
-              <Menu.Radio value="beta">
-                <span>Beta</span>
-                <Menu.RadioIndicator />
-              </Menu.Radio>
-              <Menu.Radio value="theta">
-                <span>Theta</span>
-                <Menu.RadioIndicator />
-              </Menu.Radio>
-            </Menu.RadioGroup>
-          </Menu.Container>
-        </Menu.Positioner>
-      );
-    },
+    columns,
   });
+
+  const view = grid.view.useValue();
+  const [position, setPosition] = useState<PositionUnion | null>(null);
 
   return (
-    <div style={{ height: 500, display: "flex", flexDirection: "column" }}>
-      <div style={{ flex: "1" }}>
-        <LyteNyteGrid grid={grid} />
+    <div>
+      <div className="lng-grid" style={{ height: 500 }}>
+        <Grid.Root grid={grid}>
+          <Grid.Viewport>
+            <Grid.Header>
+              {view.header.layout.map((row, i) => {
+                return (
+                  <Grid.HeaderRow key={i} headerRowIndex={i}>
+                    {row.map((c) => {
+                      if (c.kind === "group") return null;
+
+                      return (
+                        <Grid.HeaderCell
+                          key={c.id}
+                          cell={c}
+                          className="flex w-full h-full capitalize px-2 items-center"
+                        />
+                      );
+                    })}
+                  </Grid.HeaderRow>
+                );
+              })}
+            </Grid.Header>
+
+            <ContextMenu.Root
+              modal
+              onOpenChange={(b) => {
+                if (!b) setPosition(null);
+              }}
+            >
+              <ContextMenu.Trigger
+                asChild
+                onContextMenu={(c) => {
+                  const element = c.target as HTMLElement;
+                  setPosition(grid.api.positionFromElement(element));
+                }}
+              >
+                <Grid.RowsContainer>
+                  <Grid.RowsCenter>
+                    {view.rows.center.map((row) => {
+                      if (row.kind === "full-width") return null;
+
+                      return (
+                        <Grid.Row row={row} key={row.id}>
+                          {row.cells.map((c) => {
+                            return (
+                              <Grid.Cell
+                                key={c.id}
+                                cell={c}
+                                className="text-sm flex items-center px-2 h-full w-full"
+                              />
+                            );
+                          })}
+                        </Grid.Row>
+                      );
+                    })}
+                  </Grid.RowsCenter>
+                </Grid.RowsContainer>
+              </ContextMenu.Trigger>
+              <GridContextMenu position={position} />
+            </ContextMenu.Root>
+          </Grid.Viewport>
+        </Grid.Root>
       </div>
     </div>
+  );
+}
+
+export function GridContextMenu({
+  position,
+}: {
+  position: PositionUnion | null;
+}) {
+  return (
+    <ContextMenu.Portal>
+      <ContextMenu.Content
+        className="bg-ln-gray-05 border-ln-gray-30 border z-50 rounded relative p-2"
+        onCloseAutoFocus={(e) => e.preventDefault()}
+      >
+        <div className="text-sm pb-1 text-ln-gray-70">
+          Context Menu For Position: {position?.kind}
+        </div>
+        <ContextMenu.Item className="py-1 text-sm">Item 1</ContextMenu.Item>
+        <ContextMenu.Item className="py-1 text-sm">Item 2</ContextMenu.Item>
+        <ContextMenu.Item className="py-1 text-sm">Item 3</ContextMenu.Item>
+        <ContextMenu.Separator />
+      </ContextMenu.Content>
+    </ContextMenu.Portal>
   );
 }

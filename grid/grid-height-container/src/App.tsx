@@ -1,14 +1,14 @@
-import {
-  LyteNyteGrid,
-  useLyteNytePro,
-  useClientDataSource,
-} from "@1771technologies/lytenyte-pro";
+"use client";
+
 import "@1771technologies/lytenyte-pro/grid.css";
-import { ColumnProReact } from "@1771technologies/lytenyte-pro/types";
+import { Grid, useClientRowDataSource } from "@1771technologies/lytenyte-pro";
+import type { Column } from "@1771technologies/lytenyte-pro/types";
 import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
 import { useId } from "react";
 
-const columns: ColumnProReact[] = [
+type BankData = (typeof bankDataSmall)[number];
+
+const columns: Column<BankData>[] = [
   { id: "age", type: "number" },
   { id: "job" },
   { id: "balance", type: "number" },
@@ -28,26 +28,66 @@ const columns: ColumnProReact[] = [
   { id: "y" },
 ];
 
-export function App() {
-  const ds = useClientDataSource({ data: bankDataSmall });
+export default function GridHeightContainer() {
+  const ds = useClientRowDataSource({ data: bankDataSmall });
 
-  const grid = useLyteNytePro({
+  const grid = Grid.useLyteNyte({
     gridId: useId(),
     rowDataSource: ds,
     columns,
-    columnBase: {
-      sortable: true,
-      movable: true,
-      resizable: true,
-      uiHints: { sortButton: true },
-    },
   });
 
+  const view = grid.view.useValue();
+
   return (
-    <div style={{ display: "grid", gridTemplateRows: "500px" }}>
-      <div>
-        <LyteNyteGrid grid={grid} />
-      </div>
+    <div
+      className="lng-grid"
+      style={{ display: "grid", gridTemplateRows: "500px" }}
+    >
+      <Grid.Root grid={grid}>
+        <Grid.Viewport>
+          <Grid.Header>
+            {view.header.layout.map((row, i) => {
+              return (
+                <Grid.HeaderRow key={i} headerRowIndex={i}>
+                  {row.map((c) => {
+                    if (c.kind === "group") return null;
+
+                    return (
+                      <Grid.HeaderCell
+                        key={c.id}
+                        cell={c}
+                        className="flex w-full h-full capitalize px-2 items-center"
+                      />
+                    );
+                  })}
+                </Grid.HeaderRow>
+              );
+            })}
+          </Grid.Header>
+          <Grid.RowsContainer>
+            <Grid.RowsCenter>
+              {view.rows.center.map((row) => {
+                if (row.kind === "full-width") return null;
+
+                return (
+                  <Grid.Row row={row} key={row.id}>
+                    {row.cells.map((c) => {
+                      return (
+                        <Grid.Cell
+                          key={c.id}
+                          cell={c}
+                          className="text-sm flex items-center px-2 h-full w-full"
+                        />
+                      );
+                    })}
+                  </Grid.Row>
+                );
+              })}
+            </Grid.RowsCenter>
+          </Grid.RowsContainer>
+        </Grid.Viewport>
+      </Grid.Root>
     </div>
   );
 }
