@@ -1,21 +1,37 @@
+"use client";
+
 import {
-  useClientDataSource,
-  useLyteNytePro,
+  useClientRowDataSource,
+  Grid,
+  ColumnManager as CM,
 } from "@1771technologies/lytenyte-pro";
 import "@1771technologies/lytenyte-pro/grid.css";
-import { ColumnManager } from "@1771technologies/lytenyte-pro/column-manager";
-import { ColumnProReact } from "@1771technologies/lytenyte-pro/types";
+import {
+  ChevronDownIcon,
+  DragDotsSmallIcon,
+} from "@1771technologies/lytenyte-pro/icons";
+import type {
+  Column,
+  Grid as GridType,
+} from "@1771technologies/lytenyte-pro/types";
 import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
+import { ChevronRightIcon, Crosshair1Icon } from "@radix-ui/react-icons";
+import { useId } from "react";
 
-const columns: ColumnProReact[] = [
-  { id: "age", type: "number", groupPath: ["Specifics"] },
-  { id: "job", groupPath: ["Specifics"] },
+type BankData = (typeof bankDataSmall)[number];
+type TreeItem = ReturnType<
+  typeof CM.useColumnManager<BankData>
+>["items"][number];
+
+const columns: Column<BankData>[] = [
+  { id: "age", type: "number" },
+  { id: "job" },
   { id: "balance", type: "number" },
   { id: "education" },
-  { id: "marital" },
-  { id: "default", groupPath: ["Hosing"] },
-  { id: "housing", groupPath: ["Hosing"] },
-  { id: "loan", groupPath: ["Hosing"] },
+  { id: "marital", groupPath: ["Personal"] },
+  { id: "default", groupPath: ["Personal"] },
+  { id: "housing", groupPath: ["Personal"] },
+  { id: "loan" },
   { id: "contact" },
   { id: "day", type: "number" },
   { id: "month" },
@@ -27,106 +43,211 @@ const columns: ColumnProReact[] = [
   { id: "y" },
 ];
 
-export function App() {
-  const ds = useClientDataSource({
+export default function ColumnManager() {
+  const ds = useClientRowDataSource({
     data: bankDataSmall,
-  });
+    transformInFilterItem: (params) => {
+      if (params.column.id === "age") {
+        return params.values.map((c) => {
+          const v = c as number;
+          let group;
 
-  const grid = useLyteNytePro({
-    gridId: "x",
-    columns,
-    rowDataSource: ds,
+          if (v < 20) group = "0 < 20";
+          else if (v < 40) group = "20 < 40";
+          else if (v < 60) group = "40 < 60";
+          else group = "60+";
 
-    columnBase: {
-      resizable: true,
-      movable: true,
-      sortable: true,
-      rowGroupable: true,
-      columnPivotable: true,
-      measureFnsAllowed: ["avg", "count", "last", "first"],
-      aggFnsAllowed: ["avg", "count", "last", "first"],
+          return {
+            id: `${v}`,
+            label: `${v} years`,
+            value: v,
+            groupPath: [group],
+          };
+        });
+      }
+
+      return params.values.map((c) => ({
+        id: `${c}`,
+        label: `${c}`,
+        value: c,
+      }));
     },
   });
 
+  const grid = Grid.useLyteNyte({
+    gridId: useId(),
+    rowDataSource: ds,
+    columns,
+  });
+
+  const view = grid.view.useValue();
+
+  const { items, lookup } = CM.useColumnManager({
+    grid,
+  });
+
   return (
-    <div
-      style={{
-        width: "400px",
-        height: "1200px",
-        border: "1px solid black",
-        padding: 8,
-      }}
-    >
-      <ColumnManager.Root
-        grid={grid}
-        style={{ display: "flex", flexDirection: "column", height: "100%" }}
+    <div>
+      <div className="bg-ln-gray-05 column-manager h-[300px]">
+        <CM.Root grid={grid} lookup={lookup}>
+          <CM.Panel
+            className="h-full w-full"
+            style={{ position: "relative", overflow: "auto" }}
+          >
+            {items.map((c) => {
+              return (
+                <RenderNode
+                  item={c}
+                  grid={grid}
+                  key={c.kind === "branch" ? c.id : c.data.id}
+                />
+              );
+            })}
+          </CM.Panel>
+        </CM.Root>
+      </div>
+
+      <div>
+        <div className="lng-grid" style={{ height: 500 }}>
+          <Grid.Root grid={grid}>
+            <Grid.Viewport>
+              <Grid.Header>
+                {view.header.layout.map((row, i) => {
+                  return (
+                    <Grid.HeaderRow key={i} headerRowIndex={i}>
+                      {row.map((c) => {
+                        if (c.kind === "group") {
+                          return (
+                            <Grid.HeaderGroupCell
+                              key={c.idOccurrence}
+                              cell={c}
+                              className="flex items-center gap-2 px-2"
+                            >
+                              <div>{c.groupPath.at(-1)}</div>
+                            </Grid.HeaderGroupCell>
+                          );
+                        }
+
+                        return (
+                          <Grid.HeaderCell
+                            key={c.id}
+                            cell={c}
+                            className="flex w-full h-full capitalize px-2 items-center"
+                          />
+                        );
+                      })}
+                    </Grid.HeaderRow>
+                  );
+                })}
+              </Grid.Header>
+
+              <Grid.RowsContainer>
+                <Grid.RowsCenter>
+                  {view.rows.center.map((row) => {
+                    if (row.kind === "full-width") return null;
+
+                    return (
+                      <Grid.Row row={row} key={row.id}>
+                        {row.cells.map((c) => {
+                          return (
+                            <Grid.Cell
+                              key={c.id}
+                              cell={c}
+                              className="text-sm flex items-center px-2 h-full w-full"
+                            />
+                          );
+                        })}
+                      </Grid.Row>
+                    );
+                  })}
+                </Grid.RowsCenter>
+              </Grid.RowsContainer>
+            </Grid.Viewport>
+          </Grid.Root>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RenderNode({
+  item,
+  grid,
+}: {
+  item: TreeItem;
+  grid: GridType<BankData>;
+}) {
+  if (item.kind === "leaf") {
+    return (
+      <CM.Leaf
+        item={item}
+        className="flex items-center gap-1 hover:bg-ln-gray-30 transition-all focus:bg-ln-primary-30 my-0 pl-6"
       >
-        <div
-          style={{
-            paddingInline: "8px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            boxSizing: "border-box",
+        <CM.MoveHandle
+          className="flex items-center justify-center hover:bg-ln-gray-30 focus:ring-1"
+          placeholder={({ columns }) => {
+            const c = columns[0];
+            return (
+              <div className="px-2 py-1 bg-black text-white rounded flex gap-2 items-center">
+                <Crosshair1Icon />
+                {typeof c === "string" ? c : c.name ?? c.id}
+              </div>
+            );
           }}
         >
-          <ColumnManager.Search style={{ flex: 1 }} />
-          <ColumnManager.PivotModeToggle />
-        </div>
-        <ColumnManager.DragPlaceholder />
-        <div style={{ height: 600 }}>
-          <ColumnManager.Tree>
-            {(c) => {
-              return <ColumnManager.TreeItem columnItem={c} />;
-            }}
-          </ColumnManager.Tree>
-        </div>
+          <DragDotsSmallIcon />
+        </CM.MoveHandle>
+        <CM.VisibilityCheckbox />
+        <CM.Label className="flex items-center flex-1 text-sm text-ln-gray-70 pl-1" />
+      </CM.Leaf>
+    );
+  }
 
-        <div style={{ overflow: "auto", flex: 1, width: "100%" }}>
-          {(
-            ["row-groups", "aggregations", "column-pivots", "measures"] as const
-          ).map((c) => {
-            return (
-              <>
-                <ColumnManager.Separator dir="horizontal" />
-                <ColumnManager.DragBox
-                  source={c}
-                  key={c}
-                  style={{ paddingBlock: 8 }}
-                >
-                  <ColumnManager.DragBoxControls>
-                    <ColumnManager.DragBoxLabel>
-                      {c === "row-groups"
-                        ? "Row Groups"
-                        : c === "aggregations"
-                        ? "Aggregations"
-                        : c === "column-pivots"
-                        ? "Column Pivots"
-                        : "Measures"}
-                    </ColumnManager.DragBoxLabel>
-                    <ColumnManager.DragBoxExpander />
-                  </ColumnManager.DragBoxControls>
-                  <ColumnManager.DropZoneVisibility
-                    style={{ paddingInline: 8, paddingBottom: 16 }}
-                  >
-                    <ColumnManager.DropZone style={{ marginTop: "8px" }}>
-                      {({ pills }) => {
-                        return (
-                          <>
-                            {pills.map((c) => (
-                              <ColumnManager.Pill item={c} key={c.label} />
-                            ))}
-                          </>
-                        );
-                      }}
-                    </ColumnManager.DropZone>
-                  </ColumnManager.DropZoneVisibility>
-                </ColumnManager.DragBox>
-              </>
-            );
-          })}
+  const values = [...item.children.values()];
+
+  return (
+    <CM.Branch
+      item={item}
+      className="flex flex-col my-0"
+      labelWrapClassName="flex items-center gap-1 text-sm"
+      expander={(p) => {
+        return (
+          <button>
+            {p.expanded && <ChevronDownIcon />}
+            {!p.expanded && <ChevronRightIcon />}
+          </button>
+        );
+      }}
+      label={
+        <div style={{ display: "flex", gap: 6 }}>
+          <CM.MoveHandle
+            className="flex items-center justify-center hover:bg-ln-gray-30 focus:ring-1"
+            placeholder={({ columns }) => {
+              const c = columns[0];
+              return (
+                <div className="py-1 bg-black text-white rounded flex gap-2 items-center">
+                  <Crosshair1Icon />
+                  {typeof c === "string" ? c : c.name ?? c.id}
+                </div>
+              );
+            }}
+          >
+            <DragDotsSmallIcon />
+          </CM.MoveHandle>
+          <CM.VisibilityCheckbox />
+          <CM.Label />
         </div>
-      </ColumnManager.Root>
-    </div>
+      }
+    >
+      {values.map((c) => {
+        return (
+          <RenderNode
+            item={c}
+            grid={grid}
+            key={c.kind === "branch" ? c.id : c.data.id}
+          />
+        );
+      })}
+    </CM.Branch>
   );
 }

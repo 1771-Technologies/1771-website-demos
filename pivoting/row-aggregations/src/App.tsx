@@ -1,27 +1,31 @@
-import {
-  LyteNyteGrid,
-  useLyteNytePro,
-  useClientDataSource,
-} from "@1771technologies/lytenyte-pro";
+"use client";
+
+import { Grid, useClientRowDataSource } from "@1771technologies/lytenyte-pro";
 import "@1771technologies/lytenyte-pro/grid.css";
-import { ColumnProReact } from "@1771technologies/lytenyte-pro/types";
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@1771technologies/lytenyte-pro/icons";
+import type { Column } from "@1771technologies/lytenyte-pro/types";
 import { bankDataSmall } from "@1771technologies/sample-data/bank-data-smaller";
 import { useId } from "react";
 
-const columns: ColumnProReact[] = [
+type BankData = (typeof bankDataSmall)[number];
+
+const columns: Column<BankData>[] = [
   { id: "age", type: "number" },
-  { id: "job", rowGroupable: true },
+  { id: "job" },
   { id: "balance", type: "number" },
-  { id: "education", rowGroupable: true },
+  { id: "education" },
   { id: "marital" },
 ];
 
-export function App() {
-  const ds = useClientDataSource({
+export function RowAggregations() {
+  const ds = useClientRowDataSource({
     data: bankDataSmall,
   });
 
-  const grid = useLyteNytePro({
+  const grid = Grid.useLyteNyte({
     gridId: useId(),
     rowDataSource: ds,
     columns,
@@ -31,15 +35,85 @@ export function App() {
       job: { fn: "count" },
       balance: { fn: "sum" },
     },
+
+    rowGroupColumn: {
+      cellRenderer: ({ grid, row, column }) => {
+        if (!grid.api.rowIsGroup(row)) return null;
+
+        const field = grid.api.columnField(column, row);
+        const isExpanded = grid.api.rowGroupIsExpanded(row);
+
+        return (
+          <div
+            className="flex items-center gap-2 w-full h-full"
+            style={{ paddingLeft: row.depth * 16 }}
+          >
+            <button
+              className="flex items-center justify-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                grid.api.rowGroupToggle(row);
+              }}
+            >
+              {!isExpanded && <ChevronRightIcon />}
+              {isExpanded && <ChevronDownIcon />}
+            </button>
+
+            <div>{`${field}`}</div>
+          </div>
+        );
+      },
+    },
   });
 
+  const view = grid.view.useValue();
+
   return (
-    <div>
-      <div style={{ height: 500, display: "flex", flexDirection: "column" }}>
-        <div style={{ flex: "1" }}>
-          <LyteNyteGrid grid={grid} />
-        </div>
-      </div>
+    <div className="lng-grid" style={{ height: 500 }}>
+      <Grid.Root grid={grid}>
+        <Grid.Viewport>
+          <Grid.Header>
+            {view.header.layout.map((row, i) => {
+              return (
+                <Grid.HeaderRow key={i} headerRowIndex={i}>
+                  {row.map((c) => {
+                    if (c.kind === "group") return null;
+
+                    return (
+                      <Grid.HeaderCell
+                        key={c.id}
+                        cell={c}
+                        className="flex w-full h-full capitalize px-2 items-center"
+                      />
+                    );
+                  })}
+                </Grid.HeaderRow>
+              );
+            })}
+          </Grid.Header>
+          <Grid.RowsContainer>
+            <Grid.RowsCenter>
+              {view.rows.center.map((row) => {
+                if (row.kind === "full-width") return null;
+
+                return (
+                  <Grid.Row row={row} key={row.id}>
+                    {row.cells.map((c) => {
+                      return (
+                        <Grid.Cell
+                          key={c.id}
+                          cell={c}
+                          className="text-sm flex items-center px-2 h-full w-full"
+                        />
+                      );
+                    })}
+                  </Grid.Row>
+                );
+              })}
+            </Grid.RowsCenter>
+          </Grid.RowsContainer>
+        </Grid.Viewport>
+      </Grid.Root>
     </div>
   );
 }
