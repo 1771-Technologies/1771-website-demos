@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@1771technologies/lytenyte-pro": "1.0.1",
+    "@1771technologies/lytenyte-pro": "1.0.3",
     "@1771technologies/sample-data": "^0.9.4",
     "@ark-ui/react": "^5.9.0",
     "@base-ui-components/react": "1.0.0-beta.2",
