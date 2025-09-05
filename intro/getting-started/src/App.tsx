@@ -35,7 +35,6 @@ const columns: Column<RequestData>[] = [
     name: "Method",
     width: 100,
     cellRenderer: MethodCell,
-    type: "number",
   },
   { id: "timing-phase", name: "Timing Phase", cellRenderer: TimingPhaseCell },
   { id: "Pathname", name: "Pathname", cellRenderer: PathnameCell },
